@@ -89,6 +89,14 @@ Languages:
                                         <h2><br />Honorary MVP Award</h2>
                                         <p>The Honorary MVP award is exclusively given at the discretion of Sitecore’s CEO to a Sitecorian for recognizing outstanding achievements during their career.</p><p><br /></p>        
         
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
       Value: "8656b70e-ccb5-4472-a997-c9733d10f680"

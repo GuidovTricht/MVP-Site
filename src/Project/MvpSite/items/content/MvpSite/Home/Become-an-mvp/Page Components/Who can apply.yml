@@ -17,6 +17,14 @@ Languages:
     - ID: "3e1619ab-4eef-47b1-a801-13440d0098a6"
       Hint: TeaserTitle
       Value: "Who can apply?"
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
     - ID: "5e0174e0-52ca-4cc1-a6d5-1ae75954b019"
       Hint: TeaserLink
       Value: |

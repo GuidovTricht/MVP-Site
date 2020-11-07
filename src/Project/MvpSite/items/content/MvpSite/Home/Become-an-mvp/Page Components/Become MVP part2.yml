@@ -25,6 +25,14 @@ Languages:
         <p>&nbsp;</p>
         <h3>What if I have additional questions?</h3>
         <p>If you have any additional questions about the MVP Program or nominations please create a topic on the&nbsp;<a rel="noopener noreferrer" href="https://community.sitecore.net/general/f/11" target="_blank">General Discussion forums</a>&nbsp;or ask a question on <a rel="noopener noreferrer" href="https://sitecore.stackexchange.com/questions/tagged/mvp" target="_blank">Sitecore StackExchange</a>.</p>
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
       Value: "f1f5677b-df62-4df2-8a31-1e91870eac73"

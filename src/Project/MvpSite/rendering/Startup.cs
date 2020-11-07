@@ -19,6 +19,9 @@ using Microsoft.AspNetCore.Localization;
 using Mvp.Project.MvpSite.Configuration;
 using Sitecore.AspNet.RenderingEngine.Localization;
 using Microsoft.AspNetCore.HttpOverrides;
+using Mvp.Feature.Account.Extensions;
+using Mvp.Feature.Account.Services;
+using Sitecore.AspNet.RenderingEngine;
 
 namespace Mvp.Project.MvpSite.Rendering
 {
@@ -48,6 +51,15 @@ namespace Mvp.Project.MvpSite.Rendering
                 // At this time the Layout Service Client requires Json.NET due to limitations in System.Text.Json.
                 .AddNewtonsoftJson(o => o.SerializerSettings.SetDefaults());
 
+            //Add HttpClient for using the SSC APIs
+            services.AddHttpClient("sitecoreClient", c =>
+            {
+                c.BaseAddress = Configuration.InstanceUri;
+            });
+
+            services.AddTransient<IAuthenticationService, AuthenticationService>();
+            services.AddTransient<ISitecoreRenderingContext, SitecoreRenderingContext>();
+
             // Register the Sitecore Layout Service Client, which will be invoked by the Sitecore Rendering Engine.
             services.AddSitecoreLayoutService()
                 // Set default parameters for the Layout Service Client from our bound configuration object.
@@ -69,11 +81,16 @@ namespace Mvp.Project.MvpSite.Rendering
                     .AddFeatureNavigation()
                     .AddFeatureHero()
                     .AddFeatureSocial()
+                    .AddFeatureAccount()
                     .AddDefaultPartialView("_ComponentNotFound");
             })
                 // Includes forwarding of Scheme as X-Forwarded-Proto to the Layout Service, so that
                 // Sitecore Media and other links have the correct scheme.
-                .ForwardHeaders()
+                .ForwardHeaders(options =>
+                {
+                    //Also forward cookies to enable authorization
+                    options.HeadersWhitelist.Add("cookie");
+                })
                 // Enable forwarding of relevant headers and client IP for Sitecore Tracking and Personalization.
                 //.WithTracking()
                 // Enable support for the Experience Editor.
@@ -155,6 +172,12 @@ namespace Mvp.Project.MvpSite.Rendering
                     "healthz",
                     "healthz",
                     new { controller = "Default", action = "Healthz" }
+                );
+
+                endpoints.MapControllerRoute(
+                    "authentication",
+                    "services/v1/auth/login",
+                    new { controller = "Authentication", action = "Login" }
                 );
 
                 // Enables the default Sitecore URL pattern with a language prefix.

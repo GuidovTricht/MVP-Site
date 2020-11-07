@@ -26,6 +26,14 @@ Languages:
                                             <li>Exclusive Invitation to the MVP Summit. The Summit is executive insight to product and company strategy with lots of networking and fun activities.</li>
                                             <li>Discount at Sitecore events SUGCON, Symposium</li>
                                         </ul>
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
       Value: "678b9373-7a58-46ae-a78f-a20e8bc664d2"
