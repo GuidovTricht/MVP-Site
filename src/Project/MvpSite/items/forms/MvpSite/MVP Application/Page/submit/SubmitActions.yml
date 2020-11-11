@@ -1,0 +1,23 @@
+﻿---
+ID: "60741d8b-a71f-4772-ab1e-39bd833319c1"
+Parent: "bcbde721-b53c-4ce1-894f-a3a70f5974b8"
+Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
+Path: /sitecore/Forms/MvpSite/MVP Application/Page/submit/SubmitActions
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20201107T170406Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "9239a291-8b0c-4098-9f52-bb8bb7d36ae3"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20201107T170406Z

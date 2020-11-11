@@ -19,6 +19,7 @@ using Microsoft.AspNetCore.Localization;
 using Mvp.Project.MvpSite.Configuration;
 using Sitecore.AspNet.RenderingEngine.Localization;
 using Microsoft.AspNetCore.HttpOverrides;
+using Mvp.Feature.Forms.Extensions;
 
 namespace Mvp.Project.MvpSite.Rendering
 {
@@ -69,6 +70,7 @@ namespace Mvp.Project.MvpSite.Rendering
                     .AddFeatureNavigation()
                     .AddFeatureHero()
                     .AddFeatureSocial()
+                    .AddFeatureForms()
                     .AddDefaultPartialView("_ComponentNotFound");
             })
                 // Includes forwarding of Scheme as X-Forwarded-Proto to the Layout Service, so that

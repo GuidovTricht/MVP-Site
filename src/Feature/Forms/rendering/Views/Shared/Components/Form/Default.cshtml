@@ -1,0 +1,16 @@
+﻿@using Mvp.Feature.Forms.Models
+@model Mvp.Feature.Forms.Models.Form
+
+<section class="hero background-white">
+    <div><h1>Form</h1></div>
+    <div>
+        <form action="@Model.ActionUrl" method="POST">
+            @foreach(FormField fieldObj in Model.Fields){
+                @await Component.InvokeAsync("FormField", new { field = fieldObj as Mvp.Feature.Forms.Models.FormField })
+                @*<div>
+                    @Newtonsoft.Json.JsonConvert.SerializeObject(fieldObj)
+                </div>*@
+            }
+        </form>
+    </div>
+</section>

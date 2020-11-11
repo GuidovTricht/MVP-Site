@@ -1,0 +1,13 @@
+﻿@model Mvp.Feature.Forms.Models.FormField
+
+<div>
+    <label for="@Model.ValueField.Id" class="@Model.Model.LabelCssClass">@Model.Model.Title</label>
+    <input 
+        id="@Model.ValueField.Id" 
+        name="@Model.ValueField.Name" 
+        type="text" 
+        placeholder="@Model.Model.PlaceholderText"
+        value="@Model.Model.Value"
+        maxlength="@Model.Model.MaxLength"
+        class="@Model.Model.CssClass" />
+</div>
