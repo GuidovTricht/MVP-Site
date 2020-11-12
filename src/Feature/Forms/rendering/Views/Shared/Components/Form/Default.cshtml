@@ -5,11 +5,13 @@
     <div><h1>Form</h1></div>
     <div>
         <form action="@Model.ActionUrl" method="POST">
+            <input type="hidden" id="@Model.AntiForgeryToken.Id" name="@Model.AntiForgeryToken.Name" value="@Model.AntiForgeryToken.Value" />
+            <input type="hidden" id="@Model.FormItemId.Id" name="@Model.FormItemId.Name" value="@Model.FormItemId.Value" />
+            <input type="hidden" id="@Model.PageItemId.Id" name="@Model.PageItemId.Name" value="@Model.PageItemId.Value" />
+            <input type="hidden" id="@Model.FormSessionId.Id" name="@Model.FormSessionId.Name" value="@Model.FormSessionId.Value" />
+
             @foreach(FormField fieldObj in Model.Fields){
                 @await Component.InvokeAsync("FormField", new { field = fieldObj as Mvp.Feature.Forms.Models.FormField })
-                @*<div>
-                    @Newtonsoft.Json.JsonConvert.SerializeObject(fieldObj)
-                </div>*@
             }
         </form>
     </div>

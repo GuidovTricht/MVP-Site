@@ -1,6 +1,21 @@
 ﻿@model Mvp.Feature.Forms.Models.FormField
 
 <div>
+    <input
+        type="hidden"
+        id="@Model.NavigationButtonsField.Id"
+        name="@Model.NavigationButtonsField.Name"
+        value="@Model.NavigationButtonsField.Value" />
+    <input
+        type="hidden"
+        id="@Model.NavigationStepField.Id"
+        name="@Model.NavigationStepField.Name"
+        value="@Model.NavigationStepField.Value" />
+    <input
+        type="hidden"
+        id="@Model.ButtonField.Id"
+        name="@Model.ButtonField.Name"
+        value="@Model.ButtonField.Value" />
     <button 
         id="@Model.ButtonField.Id" 
         name="@Model.NavigationButtonsField.Name" 

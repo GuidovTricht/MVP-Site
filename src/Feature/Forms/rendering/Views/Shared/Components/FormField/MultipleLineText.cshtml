@@ -2,6 +2,16 @@
 
 <div>
     <label for="@Model.ValueField.Id" class="@Model.Model.LabelCssClass">@Model.Model.Title</label>
+    <input
+        type="hidden"
+        id="@Model.IndexField.Id"
+        name="@Model.IndexField.Name"
+        value="@Model.IndexField.Value" />
+    <input
+        type="hidden"
+        id="@Model.FieldIdField.Id"
+        name="@Model.FieldIdField.Name"
+        value="@Model.FieldIdField.Value" />
     <textarea 
         id="@Model.ValueField.Id" 
         name="@Model.ValueField.Name"
