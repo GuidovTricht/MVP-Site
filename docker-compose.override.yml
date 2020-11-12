@@ -115,7 +115,7 @@ services:
       - ${HOST_LICENSE_FOLDER}:c:\license
     environment:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
-    entrypoint: powershell.exe -Command "& C:\tools\entrypoints\iis\Development.ps1"
+    entrypoint: cmd /c "start /B powershell C:/tools/scripts/Invoke-XdtTransform.ps1 -Path 'C:\inetpub\wwwroot\Web.config' -XdtPath 'C:\inetpub\wwwroot\Web.LOCAL.config' & powershell C:/tools/entrypoints/iis/Development.ps1"
     labels:
       - "traefik.http.middlewares.force-STS-Header.headers.forceSTSHeader=true"
       - "traefik.http.middlewares.force-STS-Header.headers.stsSeconds=31536000"
@@ -143,7 +143,7 @@ services:
       - ${HOST_LICENSE_FOLDER}:c:\license
     environment:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
-    entrypoint: powershell.exe -Command "& C:\tools\entrypoints\iis\Development.ps1"
+    entrypoint: cmd /c "start /B powershell C:/tools/scripts/Invoke-XdtTransform.ps1 -Path 'C:\inetpub\wwwroot\Web.config' -XdtPath 'C:\inetpub\wwwroot\Web.LOCAL.config' & powershell C:/tools/entrypoints/iis/Development.ps1"
  
 networks:
   default:

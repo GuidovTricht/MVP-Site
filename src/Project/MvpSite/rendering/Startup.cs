@@ -25,6 +25,7 @@ namespace Mvp.Project.MvpSite.Rendering
 {
     public class Startup
     {
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         private static readonly string _defaultLanguage = "en";
 
         public Startup(IConfiguration configuration)
@@ -48,6 +49,22 @@ namespace Mvp.Project.MvpSite.Rendering
                 .AddMvc()
                 // At this time the Layout Service Client requires Json.NET due to limitations in System.Text.Json.
                 .AddNewtonsoftJson(o => o.SerializerSettings.SetDefaults());
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                                  builder =>
+                                  {
+                                      builder.WithOrigins("https://mvp.sc.localhost",
+                                                          "https://localhost:44366",
+                                                          "https://mvp-cd.sc.localhost",
+                                                          "https://mvp-cm.sc.localhost",
+                                                          "http://mvp.sc.localhost",
+                                                          "http://localhost:44366",
+                                                          "http://mvp-cd.sc.localhost",
+                                                          "http://mvp-cm.sc.localhost");
+                                  });
+            });
 
             // Register the Sitecore Layout Service Client, which will be invoked by the Sitecore Rendering Engine.
             services.AddSitecoreLayoutService()
@@ -141,6 +158,8 @@ namespace Mvp.Project.MvpSite.Rendering
                 // Allow culture to be resolved via standard Sitecore URL prefix and query string (sc_lang).
                 options.UseSitecoreRequestLocalization();
             });
+
+            app.UseCors(MyAllowSpecificOrigins);
 
             // Enable proxying of Sitecore robot detection scripts
             //app.UseSitecoreVisitorIdentification();

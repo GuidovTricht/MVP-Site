@@ -4,7 +4,20 @@
 <section class="hero background-white">
     <div><h1>Form</h1></div>
     <div>
-        <form action="@Model.ActionUrl" method="POST">
+        <script type="text/javascript">
+            function submitForm(e, form){
+                e.preventDefault();
+                console.log(form);
+
+                fetch('@Model.ActionUrl', {
+                    body: new FormData(form),
+                    method: 'post',
+                    credentials: 'include'
+                });
+
+            }
+        </script>
+        <form method="POST" onsubmit="submitForm(event, this)">
             <input type="hidden" id="@Model.AntiForgeryToken.Id" name="@Model.AntiForgeryToken.Name" value="@Model.AntiForgeryToken.Value" />
             <input type="hidden" id="@Model.FormItemId.Id" name="@Model.FormItemId.Name" value="@Model.FormItemId.Value" />
             <input type="hidden" id="@Model.PageItemId.Id" name="@Model.PageItemId.Name" value="@Model.PageItemId.Value" />
