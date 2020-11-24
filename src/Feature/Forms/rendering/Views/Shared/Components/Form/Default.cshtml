@@ -12,6 +12,9 @@
                 fetch('@Model.ActionUrl', {
                     body: new FormData(form),
                     method: 'post',
+                    headers: {
+                        "Content-Type": "multipart/form-data"
+                    },
                     credentials: 'include'
                 });
 

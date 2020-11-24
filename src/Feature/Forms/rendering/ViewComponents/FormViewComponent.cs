@@ -19,7 +19,12 @@ namespace Mvp.Feature.Forms.ViewComponents
             var model = await viewModelBinder.Bind<Form>(this.ViewContext);
             model.ActionUrl = $"https://mvp-cd.sc.localhost/api/jss/formbuilder?fxb.FormItemId={model.Metadata.ItemId}&fxb.HtmlPrefix={model.HtmlPrefix}&sc_apikey={{E2F3D43E-B1FD-495E-B4B1-84579892422A}}&sc_itemid={model.Metadata.ItemId}";
 
-            HttpContext.Response.Cookies.Append("__RequestVerificationToken", model?.AntiForgeryToken?.Value);
+            HttpContext.Response.Cookies.Append("__RequestVerificationToken", 
+                model?.AntiForgeryToken?.Value, 
+                new Microsoft.AspNetCore.Http.CookieOptions() {
+                    Domain = ".sc.localhost"
+                }
+            );
 
             return View(model);
         }
