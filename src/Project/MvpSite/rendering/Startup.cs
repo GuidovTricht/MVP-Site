@@ -19,6 +19,7 @@ using Microsoft.AspNetCore.Localization;
 using Mvp.Project.MvpSite.Configuration;
 using Sitecore.AspNet.RenderingEngine.Localization;
 using Microsoft.AspNetCore.HttpOverrides;
+using Mvp.Foundation.Multisite.Extensions;
 
 namespace Mvp.Project.MvpSite.Rendering
 {
@@ -59,6 +60,9 @@ namespace Mvp.Project.MvpSite.Rendering
                 })
                 .AddHttpHandler("default", Configuration.LayoutServiceUri)
                 .AsDefaultHandler();
+
+            // Replace Default Sitecore Layout Service Client with a custom Multisite capable version
+            services.ReplaceSitecoreLayoutClient();
 
             // Register the Sitecore Rendering Engine services.
             services.AddSitecoreRenderingEngine(options =>

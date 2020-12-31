@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>Mvp.Foundation.Multisite</AssemblyName>
+    <RootNamespace>Mvp.Foundation.Multisite</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Sitecore.LayoutService.Client" Version="14.0.1" />
+    <PackageReference Include="Sitecore.AspNet.RenderingEngine" Version="14.0.1" />
+  </ItemGroup>
+
+</Project>
